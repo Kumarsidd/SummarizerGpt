@@ -12,7 +12,7 @@ const Navbar = () => {
       <button
         type="button"
         onClick={() => window.open("https://github.com/kumarsidd/", "_blank")}
-        className="btn text-white font-bold px-10 py-4"
+        className="bg-black rounded-xl hover:bg-slate-300 hover:text-black text-white font-bold px-10 py-4"
       >
         GitHub
       </button>

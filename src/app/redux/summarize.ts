@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const rapidSummarizer : string = process.env.NEXT_RAPID_SUMMARIZER!;
+const rapidSummarizer : string = process.env.NEXT_PUBLIC_RAPID_SUMMARIZER!;
 
 interface Summary{
     summary : string
@@ -11,7 +11,7 @@ export const summarizerApi = createApi({
     baseQuery : fetchBaseQuery({
         baseUrl : 'https://article-extractor-and-summarizer.p.rapidapi.com/',
         prepareHeaders : (headers) => {
-            headers.set('X-RapidAPI-Key', "c2301b5fecmsh3c614c1b1cefaedp1c8d39jsn055603084898");
+            headers.set('X-RapidAPI-Key', rapidSummarizer);
             headers.set('X-RapidAPI-Host', 'article-extractor-and-summarizer.p.rapidapi.com');
 
             return headers;
