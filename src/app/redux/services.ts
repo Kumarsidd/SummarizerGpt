@@ -6,6 +6,10 @@ interface Summary{
     summary : string
 }
 
+interface Model{
+    model : string
+}
+
 export const summarizerApi = createApi({
     reducerPath : 'articleApi',
     baseQuery : fetchBaseQuery({
@@ -28,3 +32,22 @@ export const summarizerApi = createApi({
 })
 
 export const { useLazyGetSummaryQuery } = summarizerApi;
+
+export const imageApi = createApi({
+  reducerPath: 'generateApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://openai80.p.rapidapi.com/',
+    prepareHeaders: (headers) => {
+      headers.set('X-RapidAPI-Key', rapidSummarizer);
+      headers.set('X-RapidAPI-Host', 'openai80.p.rapidapi.com');
+      return headers;
+    },
+  }),
+  endpoints: (builder) => ({
+    getImage: builder.query<Model, { imageUrl: string }>({
+      query: (params) => ({ url: `images/generations`, method: 'POST', body: { prompt: params.imageUrl, n: 2, size: '1024x1024' } }),
+    }),
+  }),
+});
+
+export const { useLazyGetImageQuery } = imageApi;

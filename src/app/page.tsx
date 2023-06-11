@@ -24,13 +24,13 @@ const page = () => {
                 <div className="z-10">
                     <a
                         href="/summarizer"
-                        className=" text-white font-bold py-5 px-8  rounded mb-4 btn"
+                        className=" bg-black rounded-xl hover:bg-slate-300 hover:text-black text-white font-bold px-8 py-3"
                     >
                         Summarize it
                     </a>
                     <a
                         href="/image"
-                        className=" text-white font-bold py-5 px-8 ml-20  rounded btn"
+                        className=" ml-20 bg-black rounded-xl hover:bg-slate-300 hover:text-black text-white font-bold px-8 py-3"
                     >
                         Generate image
                     </a>
